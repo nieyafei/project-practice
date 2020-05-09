@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Link, Switch, Route } from 'react-router-dom';
+import './style/sass/Index.scss';
+
+import Index from "./pages/Index"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="header-section">
+        <nav>
+          <Link to={"/index"}>去首页</Link>
+          <Link to={"/login"}>去登录</Link>
+        </nav>
       </header>
+      <Switch>
+        <Route path="/index" component={Index}></Route>
+      </Switch>
     </div>
   );
 }
