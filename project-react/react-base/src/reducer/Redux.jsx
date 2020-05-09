@@ -1,4 +1,5 @@
-// import "babel-polyfill";
+import Tool from "../utils/Tool";
+
 const type = {};
 /**
  * 存储登录的用户信息
@@ -7,18 +8,20 @@ const type = {};
  * @param {Object} action
  * @returns Object
  */
-const User = (state = {}, action) => {
-    switch (action.type) {
-        case 'loginSuccess': //登录成功
-            // Tool.localItem('User', JSON.stringify(action.UserJson));
-            return action.UserJson;
-        case 'loginOut': //退出
-            return null;
-        case 'set_user_res':
-            return state;
-        default:
-            return state;
-    }
+const User = (state = JSON.parse(Tool.localItem('User')), action) => {
+
+  switch (action.type) {
+      case 'loginSuccess': //登录成功
+          Tool.localItem('User', JSON.stringify(action.UserJson));
+          return action.UserJson;
+      case 'loginOut': //退出
+          // Util.loginOut();
+          return null;
+      case 'set_user_res':
+          return state = JSON.parse(Tool.localItem('User'));
+      default:
+          return state;
+  }
 }
 
 const handleData = (state = {isFetching: true, data: {}}, action) => {

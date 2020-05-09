@@ -20,7 +20,7 @@
     "webpack-bundle-analyzer": "^3.7.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PROXY='http://dev.jiaxinggufei.com' react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
