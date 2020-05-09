@@ -1,1 +1,1 @@
-/* export {default as RouterQueryHandler} from './RouterQueryHandler'; */
+export {default as RouterQueryHandler} from './RouterQueryHandler';

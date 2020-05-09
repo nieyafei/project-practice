@@ -90,4 +90,12 @@ Tool.delSession = function(key){
     }
 }
 
+Tool.handlerPath=(props, query)=>{
+  console.log(props, query)
+  return {
+    ...props.location,
+    query
+  }
+}
+
 export default Tool;
