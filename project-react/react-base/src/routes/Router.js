@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Route, HashRouter, Switch } from 'react-router-dom';
 import App from '../App';
-import Login from '../pages/Login'
+import Login from '../pages/Login';
+import Register from '../pages/Register';
 // other
 import Page404 from "../pages/404";
 
@@ -79,6 +80,7 @@ export default class CRouter extends Component {
       <RotorHashRouter>
         <Switch>
           <Route path="/login" component={Login}></Route>
+          <Route path="/register" component={Register}></Route>
           <Route path="/" component={App} />
           <Route component={Page404} />
         </Switch>
