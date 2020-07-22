@@ -19,7 +19,7 @@ module.exports = {
     addLessLoader({
       lessOptions: {
         javascriptEnabled: true,
-        modifyVars: { '@primary-color': '#10325e' },
+        modifyVars: { '@primary-color': '#0076ff' },
       }
     }),
     addWebpackPlugin(new AntdDayjsWebpackPlugin()),
