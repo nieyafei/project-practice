@@ -4,8 +4,8 @@ import { parse, stringify } from "query-string"
 import Page from '../pages/Index';
 import Page404 from '../pages/others/404';
 
-/* import { ConfigProvider } from 'antd';
-import zhCN from 'antd/es/locale/zh_CN'; */
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/es/locale/zh_CN';
 
 function warpHistory(history) {
   // 处理location
@@ -58,10 +58,12 @@ export default class CRouter extends Component {
   render() {
     return (
       <FrontHashRouter>
-        <Switch>
-          <Route path="/index" component={Page} />
-          <Route component={Page404} />
-        </Switch>
+        <ConfigProvider locale={zhCN}>
+          <Switch>
+            <Route path="/index" component={Page} />
+            <Route component={Page404} />
+          </Switch>
+        </ConfigProvider>
         {/* <ConfigProvider locale={zhCN}>
           <Switch>
             <Route path={'/appdown'} component={AppDown} />

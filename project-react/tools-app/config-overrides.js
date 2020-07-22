@@ -1,5 +1,5 @@
 const { override, fixBabelImports, addLessLoader, addWebpackPlugin, overrideDevServer, useEslintRc } = require('customize-cra');
-// const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const NE = process.env.NODE_ENV;
 const PROXY = process.env.PROXY;
@@ -11,16 +11,19 @@ const addProxy = proxy => config => {
 module.exports = {
   webpack: override(
     useEslintRc('.eslintrc'),
-    /* fixBabelImports('import', {
+    fixBabelImports('import', {
       libraryName: 'antd',
       libraryDirectory: 'es',
       style: true,
     }),
     addLessLoader({
-      javascriptEnabled: true,
-      modifyVars: { '@primary-color': '#10325e' },
+      lessOptions: {
+        javascriptEnabled: true,
+        modifyVars: { '@primary-color': '#10325e' },
+      }
     }),
-    addWebpackPlugin(new AntdDayjsWebpackPlugin()) */
+    addWebpackPlugin(new AntdDayjsWebpackPlugin()),
+    /* NE === "production" && addWebpackPlugin(new BundleAnalyzerPlugin()) */
   ),
   devServer: overrideDevServer(
     addProxy({
