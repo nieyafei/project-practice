@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import './style/css/Index.scss';
 import * as serviceWorker from './serviceWorker';
+import CRouter from './routes/Index';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CRouter />
   </React.StrictMode>,
   document.getElementById('root')
 );
