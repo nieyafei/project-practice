@@ -6,14 +6,11 @@ class Main extends Component {
   componentDidMount(){}
   render() {
     return (
-      <div className={"page-section-oth"}>
-        <div className="page-404">
-          <div>
-            <img src={img_404} alt={""} /><br /><br />
-            页面找不到了!
-          </div>
+      <div className="page-404">
+        <div>
+          <img src={img_404} alt={""} /><br /><br />
+          页面找不到了!
         </div>
-        <div className="footer-bg" />
       </div>
     )
   }

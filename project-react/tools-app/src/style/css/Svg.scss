@@ -1,0 +1,28 @@
+@import "Base.scss";
+
+svg.qp-svg {
+  fill-opacity: 0.6;
+  fill: $primary-color;
+  &.s-p1{
+    position: absolute;
+    left: -100px;
+    top: -100px;
+  }
+  &.s-p2{
+    position: absolute;
+    right: -100px;
+    top: 100px;
+  }
+  &.qp-ani{
+    transform-origin: 50% 50%;
+    animation: move 50s ease-in-out infinite;
+  }
+}
+
+@keyframes move {
+  0%   { transform: scale(1)   translate(0, 0) rotate(0); }
+  25%  { transform: scale(0.8) translate(5vw, 10vh) rotate(55deg); }
+  50%  { transform: scale(0.6) translate(15vw, 5vh) rotate(180deg); }
+  75%  { transform: scale(0.8) translate(5vw, 10h) rotate(55deg); }
+  100% { transform: scale(1)   translate(0, 0) rotate(0); }
+}

@@ -1,5 +1,6 @@
 $primary-color: #0076ff;
-
+$active-color: #ff7400;
+$bg-color: #E9F3FF; // #F4F9FE
 // 方法
 @mixin border-radius($radius){
   border-radius:$radius;
@@ -39,4 +40,10 @@ $moz: -moz-;
   background-image: linear-gradient(135deg, $color 45%, transparent 55%, transparent 60%),
   linear-gradient(45deg, transparent 45%, transparent 55%,  $color 60%);
   background-repeat: repeat-x;
+}
+
+/* 公共css */
+body{
+  margin: 0;
+  background: $bg-color !important;
 }

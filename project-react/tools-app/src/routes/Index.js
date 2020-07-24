@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, HashRouter, Switch } from 'react-router-dom';
 import { parse, stringify } from "query-string"
-import Page from '../pages/Index';
+import App from '../App';
 import Page404 from '../pages/others/404';
 
 import { ConfigProvider } from 'antd';
@@ -60,7 +60,7 @@ export default class CRouter extends Component {
       <FrontHashRouter>
         <ConfigProvider locale={zhCN}>
           <Switch>
-            <Route path="/index" component={Page} />
+            <Route path="/" component={App} />
             <Route component={Page404} />
           </Switch>
         </ConfigProvider>

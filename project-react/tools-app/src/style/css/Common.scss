@@ -1,0 +1,49 @@
+
+/* 菜单重新定义 */
+.ant-layout.layout-content{
+  padding: 80px 100px 100px 0;
+}
+.sider-reset.ant-layout-sider{
+  overflow: auto;
+  display: flex;
+  padding-top: 80px;
+  /* align-items: center; */
+  justify-content: center;
+  background: transparent;
+  .ant-layout-sider-children{
+    height: auto;
+    .ant-menu{
+      background: #fff;
+      width: 50px;
+      padding: 20px 0;
+      border-radius: 30px;
+      box-shadow: 0 32px 32px rgba(34,94,222,.08);
+      .ant-menu-item{
+        text-align: center;
+        padding: 0;
+        border-left: 3px solid #fff;
+        .anticon{
+          font-size: 20px;
+          vertical-align: middle;
+          color: rgba($color: $primary-color, $alpha: .6);
+        }
+        &.ant-menu-item-selected,&.ant-menu-item:hover{
+          color: $active-color;
+          border-left: 3px solid $active-color;
+          background-color: rgba($color: $active-color, $alpha: .05);
+          .anticon{
+            color: $active-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* card-reset  */
+.card-reset.ant-card {
+  border-radius: 20px;
+  .ant-card-body{
+    padding-top: 0;
+  }
+}

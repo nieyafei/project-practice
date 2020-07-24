@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-import { CardReset } from "../component/Common";
-import HeaderCustom from "../component/HeaderCustom";
+import { CardReset } from "../../component/Common"
 
 class Main extends Component {
-  componentDidMount(){
-    
-  }
+  componentDidMount(){}
   render() {
     return (
       <CardReset className={"index-section"} title="首页">
-        <HeaderCustom keyName="index" />
-        测试数据
+        我是PNG
       </CardReset>
     )
   }
