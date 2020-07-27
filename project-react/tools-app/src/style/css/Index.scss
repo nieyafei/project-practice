@@ -1,7 +1,8 @@
 @import "Base.scss";
 @import "Svg.scss";
 @import "Common.scss";
-
+@import "./iconfont/iconfont.scss";
+@import "Pdf.scss";
 .page-body{
   min-height: 100vh !important;
   width: 100%;
@@ -39,4 +40,40 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* 首页 */
+.nav-list{
+  display: flex;
+  .item{
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 0 5px #f2f2f2;
+    margin-right: 20px;
+    text-align: center;
+    color: $primary-color;
+    .ims{
+      height: 120px;
+      margin-bottom: 10px;
+      line-height: 120px;
+      .iconfont{
+        vertical-align: middle;
+        font-size: 80px;
+        font-weight: 100;
+      }
+    }
+    h5{
+      color: currentColor;
+    }
+  }
+}
+
+.t-right{
+  text-align: right;
+}
+.no-padding{
+  padding: 0 !important;
 }

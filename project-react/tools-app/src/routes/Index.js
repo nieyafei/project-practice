@@ -64,16 +64,6 @@ export default class CRouter extends Component {
             <Route component={Page404} />
           </Switch>
         </ConfigProvider>
-        {/* <ConfigProvider locale={zhCN}>
-          <Switch>
-            <Route path={'/appdown'} component={AppDown} />
-            <Route path={'/register'} component={Register} />
-            <Route path={'/sup'} component={Page504} />
-            <Route path="/login" exact component={Login} />
-            <Route path="/" component={Page} />
-            <Route component={Page404} />
-          </Switch>
-        </ConfigProvider> */}
       </FrontHashRouter>
     )
   }

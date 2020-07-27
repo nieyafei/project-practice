@@ -37,8 +37,8 @@ class Main extends Component {
               <Content>
                 {/* 内容 */}
                 <Switch>
-                  <Route to="/app/index" component={Index} />
-                  <Route to="/app/pdf" component={PdfIndex} strict />
+                  <Route path="/app/index" component={Index} exact />
+                  <Route path="/app/pdf" component={PdfIndex} />
                   <Redirect to="/app/index" from="/" exact />
                   <Redirect to="/app/index" from="/app" exact />
                   <Route component={Page404} />

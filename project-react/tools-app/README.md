@@ -6,6 +6,8 @@
  > yarn create react-app 项目名称
 
 ```js
+tools.codequn.com
+47.104.135.178
 // 创建分支
 git checkout -b tools-app-develop
 // 上传

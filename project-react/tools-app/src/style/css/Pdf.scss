@@ -1,0 +1,21 @@
+.pdf-cons-section{
+  display: flex;
+  padding-top: 20px;
+  .c-menu{
+    width: 204px;
+    border-right: 2px solid $primary-color;
+    padding-right: 24px;
+  }
+  .c-preview{
+    flex: 1;
+    padding-left: 24px;
+    .pre-section{
+      height: 800px;
+      overflow: scroll;
+      overflow-x: hidden;
+      border: 1px solid #f0f0f0;
+      padding: 10px;
+      background: #f0f0f0;
+    }
+  }
+}

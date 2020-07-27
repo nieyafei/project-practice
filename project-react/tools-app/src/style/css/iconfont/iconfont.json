@@ -1,0 +1,37 @@
+{
+  "id": "1964840",
+  "name": "工具App",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4059728",
+      "name": "图片",
+      "font_class": "tupian",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "4363484",
+      "name": "PDF",
+      "font_class": "PDF",
+      "unicode": "ea20",
+      "unicode_decimal": 59936
+    },
+    {
+      "icon_id": "8640350",
+      "name": "word",
+      "font_class": "word",
+      "unicode": "e754",
+      "unicode_decimal": 59220
+    },
+    {
+      "icon_id": "15819351",
+      "name": "fill-tools",
+      "font_class": "fill-application",
+      "unicode": "e67b",
+      "unicode_decimal": 59003
+    }
+  ]
+}

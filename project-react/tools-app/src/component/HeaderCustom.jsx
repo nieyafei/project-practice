@@ -6,15 +6,12 @@ import Tool from "../utils/Tool"
 export default class Main extends Component {
   state = {}
   componentDidMount(){
-    console.log(this)
     Tool.toggleKey(this)
   }
   static contextType = SysMenuContext;
   render() {
     return (
-      <div>
-        我是导航
-      </div>
+      <div />
     )
   }
 }

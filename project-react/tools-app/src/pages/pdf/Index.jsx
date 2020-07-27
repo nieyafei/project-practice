@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
-import { Route, Switch, Redirect } from "react-router-dom";
-import ToPng from "./ToPng"
+import React from 'react';
+import { Route, Switch, Redirect, useRouteMatch } from "react-router-dom";
+import ToPng from "./ToPng";
 
-class Main extends Component {
-  componentDidMount(){}
-  render() {
-    return (
-      <React.Fragment>
-        <Switch>
-          <Route to="/app/pdf/png" component={ToPng} />
-          <Redirect to="/app/pdf/png" from="/app/pdf" exact />
-        </Switch>
-      </React.Fragment>
-    )
-  }
+export default ({match})=> {
+  console.log(match)
+  let { url } = useRouteMatch();
+  console.log(url)
+  return (
+    <React.Fragment>
+      <Switch>
+        <Route path={`${url}/to-png`} component={ToPng} />
+        <Redirect exact to={`${url}/to-png`} from="/app/pdf" />
+      </Switch>
+    </React.Fragment>
+  )
 }
-
-export default Main;
