@@ -12,4 +12,6 @@ tools.codequn.com
 git checkout -b tools-app-develop
 // 上传
 git push --set-upstream origin tools-app-develop
+
+scp -r build/* root@47.104.135.178:/opt/webapp/tools-app/
 ```
