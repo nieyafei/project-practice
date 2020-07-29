@@ -8,6 +8,7 @@ import MenuCustom from "./component/MenuCustom";
 import Page404 from './pages/others/404';
 import Index from "./pages/Index";
 import PdfIndex from "./pages/pdf/Index";
+import WeatherIndex from "./pages/weather/Index"
 import {Layout} from "antd";
 var Content = Layout.Content;
 
@@ -46,6 +47,10 @@ class Main extends Component {
               </Content>
               {/* <Footer></Footer> */}
             </Layout>
+            {/* 工具类 */}
+            <div className="tool-section">
+              <WeatherIndex />
+            </div>
           </Layout>
           {/* 公共部分 */}
           <PageBgComp />

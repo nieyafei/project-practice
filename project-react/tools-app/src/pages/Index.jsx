@@ -24,6 +24,12 @@ class Main extends Component {
             </div>
             <h5>WORD转PNG</h5>
           </Link>
+          <a href="https://tinypng.com" className="item" target="_blank" rel="noopener noreferrer">
+            <div className="ims">
+              <i className="iconfont icon-tupian" />
+            </div>
+            <h5>PNG、JPEG图片压缩</h5>
+          </a>
         </div>
       </div>
     )
