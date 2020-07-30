@@ -10,7 +10,7 @@
     "antd-dayjs-webpack-plugin": "^1.0.0",
     "babel-plugin-import": "^1.13.0",
     "customize-cra": "^1.0.0",
-    "dayjs": "^1.8.30",
+    "dayjs": "^1.8.31",
     "file-saver": "^2.0.2",
     "jszip": "^3.5.0",
     "less-loader": "^6.2.0",
