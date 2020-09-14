@@ -51,4 +51,15 @@
   .ant-card-body{
     padding-top: 0;
   }
+  &.ghost{
+    background: transparent;
+    border: none;
+    & > .ant-card-head{
+      background: #fff;
+      border-radius: 20px 20px 0 0;
+    }
+    & > .ant-card-body{
+      padding:24px 0;
+    }
+  }
 }

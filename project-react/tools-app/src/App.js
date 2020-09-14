@@ -8,6 +8,7 @@ import MenuCustom from "./component/MenuCustom";
 import Page404 from './pages/others/404';
 import Index from "./pages/Index";
 import PdfIndex from "./pages/pdf/Index";
+import GuFeiIndex from "./pages/gufei/Index";
 import WeatherIndex from "./pages/weather/Index"
 import {Layout} from "antd";
 var Content = Layout.Content;
@@ -40,6 +41,7 @@ class Main extends Component {
                 <Switch>
                   <Route path="/app/index" component={Index} exact />
                   <Route path="/app/pdf" component={PdfIndex} />
+                  <Route path="/app/gufei" component={GuFeiIndex} />
                   <Redirect to="/app/index" from="/" exact />
                   <Redirect to="/app/index" from="/app" exact />
                   <Route component={Page404} />
