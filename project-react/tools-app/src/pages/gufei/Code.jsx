@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Link } from "react-router-dom";
-import axios from 'axios';
+import { apiResp } from '../../global/api'
 import { PageCardReset } from "../../component/Common";
 import { Row, Input, Col, Button, Card, Tag } from 'antd';
 const { Search } = Input;
@@ -20,7 +20,8 @@ const CodeInput=(props)=>{
   const [loading, setLoading] = useState(false);
   const [code, setCode] = useState('000000');
   const {url, title} = props;
-  const onSearch =(value)=> {
+  const onSearch =async (value)=> {
+    let resp = await apiResp(url+value);
     /* fetch(url+value, {method:'GET', mode: "cors", headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST',
