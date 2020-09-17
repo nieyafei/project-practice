@@ -1,10 +1,11 @@
-const api=(url, request)=>{
+const api=(url, request, token)=>{
   return fetch(url, {
     credentials: 'include',
     method:'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'x-access-token': token
     },
     body: JSON.stringify(request)
   }).then((resp)=>{

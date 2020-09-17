@@ -123,5 +123,36 @@ function delDomChild(el){
   }
 }
 
+/**
+ * 本地数据存储或读取
+ * @param {any} key
+ * @param {any} value
+ * @param company string 公司名称
+ * @param fieldList string 选择的领域
+ * @param user  用户信息
+ * @param typeFlag  登录true false
+ * @returns
+ */
+Tool.localItem = function (key, value) {
+  if (arguments.length === 1) {
+    return localStorage.getItem(key);
+  } else {
+    return localStorage.setItem(key, value);
+  }
+}
+
+
+/**
+* 删除本地数据
+* @param {any} key
+* @returns
+*/
+Tool.removeLocalItem = function (key) {
+  if (key) {
+    return localStorage.removeItem(key);
+  }
+  return localStorage.removeItem();
+}
+
 export default Tool;
 

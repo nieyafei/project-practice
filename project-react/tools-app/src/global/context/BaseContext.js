@@ -1,7 +1,9 @@
 import React from "react";
 
 // 用户数据
-export const UserContext = React.createContext();
+export const UserContext = React.createContext({
+  refreshData: ()=> {}
+});
 
 // 系统数据
 /**
