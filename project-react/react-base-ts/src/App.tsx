@@ -22,3 +22,7 @@ function App() {
 }
 
 export default App;
+
+/* const App: React.FC<Prop> = (prop) => {
+  return ()
+} */
