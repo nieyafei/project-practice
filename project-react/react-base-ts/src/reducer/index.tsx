@@ -2,6 +2,6 @@ const User =()=> {
   return null;
 }
 
-export default {
+export {
   User
 }

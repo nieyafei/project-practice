@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Tips} from "../components/Base";
+import { api } from "../global/api"
 
 /* const Index =(props: any)=>{
   console.log(props)
@@ -13,10 +14,22 @@ type Props = {
   className?: string;
   style?: React.CSSProperties;
 };
+
+async function fetchApi(){
+  const resp = await api('/api/auth/code/checkImg', null, '');
+  console.log(resp)
+}
+
 const Index: React.FC<Props> =(props)=> {
   console.log('打印数据', props)
-  const { children, ...restProps } = props;
-  return <Tips />
+  const { children } = props;
+  useEffect(()=> {
+    fetchApi();
+  })
+  return <>
+    <Tips />
+    {children}
+  </>
 }
 export default Index;
 /* import React from 'react'

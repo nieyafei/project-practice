@@ -3,6 +3,8 @@ import { Route, HashRouter, Switch } from 'react-router-dom';
 import App from '../App';
 
 import { parse, stringify } from "query-string";
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/es/locale/zh_CN';
 
 function warpHistory(parent: any) {
   // 处理location
@@ -50,11 +52,13 @@ export default class CRouter extends Component {
   render() {
     return (
       <RotorHashRouter>
-        <Switch>
-          {/* <Route path="/login" component={Login}></Route>
-          <Route path="/register" component={Register}></Route> */}
-          <Route path="/" component={App} />
-        </Switch>
+        <ConfigProvider locale={zhCN}>
+          <Switch>
+            {/* <Route path="/login" component={Login}></Route>
+            <Route path="/register" component={Register}></Route> */}
+            <Route path="/" component={App} />
+          </Switch>
+        </ConfigProvider>
       </RotorHashRouter>
     )
   }
