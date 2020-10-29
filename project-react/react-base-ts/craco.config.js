@@ -1,5 +1,6 @@
 const CracoLessPlugin = require('craco-less');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');// dayjs 替换 momentjs
 const path = require("path");
 const PROXY = process.env.PROXY;
 const addProxy = proxy => config => {
@@ -19,6 +20,7 @@ module.exports = {
     },
     plugins: [
       new BundleAnalyzerPlugin(),
+      new AntdDayjsWebpackPlugin()
     ]
   },
   devServer: addProxy({

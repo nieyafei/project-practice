@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import {Tips} from "../components/Base";
-import { api } from "../global/api"
+import { api } from "../global/api";
+import BreadcrumbCustom from "../components/BreadcrumbCustom";
 
 /* const Index =(props: any)=>{
   console.log(props)
@@ -22,14 +23,14 @@ async function fetchApi(){
 
 const Index: React.FC<Props> =(props)=> {
   console.log('打印数据', props)
-  const { children } = props;
+  const { children, ...otherProps } = props;
   useEffect(()=> {
     fetchApi();
   })
-  return <>
-    <Tips />
+  return <div {...otherProps}>
+    <BreadcrumbCustom data={[]} />
     {children}
-  </>
+  </div>
 }
 export default Index;
 /* import React from 'react'
