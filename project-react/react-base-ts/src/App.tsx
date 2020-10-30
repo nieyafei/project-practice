@@ -12,7 +12,7 @@ message.config({
   duration: 2,
   maxCount: 3,
   rtl: true,
-  prefixCls: 'my-message',
+  prefixCls: 'ant-message',
 });
 
 const App:FC =(props)=> {
