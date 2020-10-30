@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.12.1",
     "@craco/craco": "^5.7.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -15,6 +16,7 @@
     "@types/react-router-dom": "^5.1.6",
     "antd": "^4.7.3",
     "antd-dayjs-webpack-plugin": "^1.0.1",
+    "babel-plugin-import": "^1.13.1",
     "compression-webpack-plugin": "^6.0.4",
     "craco-less": "^1.17.0",
     "node-sass": "^4.14.1",

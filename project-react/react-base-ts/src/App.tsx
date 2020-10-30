@@ -3,10 +3,17 @@ import { Switch, Route, Link } from 'react-router-dom';
 import './style/css/index.scss';
 import Logo from "./logo.svg";
 import Index from "./pages/Index";
-import {Layout, Menu} from "antd";
+import {Layout, Menu, message} from "antd";
 import { DesktopOutlined, PieChartOutlined, FileOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
 const {Header, Footer, Sider, Content} = Layout;
 const { SubMenu } = Menu;
+message.config({
+  top: 100,
+  duration: 2,
+  maxCount: 3,
+  rtl: true,
+  prefixCls: 'my-message',
+});
 
 const App:FC =(props)=> {
   console.log(props)

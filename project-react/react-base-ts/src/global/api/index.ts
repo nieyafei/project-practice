@@ -1,3 +1,5 @@
+import {message} from "antd";
+
 const api=(url: string, request?: any, token?: string)=>{
   return fetch(url, {
     credentials: 'include',
@@ -8,8 +10,14 @@ const api=(url: string, request?: any, token?: string)=>{
       'x-access-token': token || ""
     },
     body: JSON.stringify(request)
-  }).then((resp)=>{
-    const data=resp.json();
+  }).then(async (resp)=>{
+    const data:any = resp.json();
+    data.then((d: any)=> {
+      if(d?.error){
+        console.log(d.error)
+        message.success(d?.error?.message);
+      }
+    })
     if(!resp.ok){
       return Promise.reject(data);
     }

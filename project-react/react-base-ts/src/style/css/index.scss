@@ -1,4 +1,7 @@
-
+@import "user.scss";
+#root{
+  height: 100%;
+}
 //美化webkit内核滚动条
 ::-webkit-scrollbar {
   width: 8px;

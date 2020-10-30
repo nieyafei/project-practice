@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, HashRouter, Switch } from 'react-router-dom';
 import App from '../App';
-
+import Login from '../pages/user/Login';
 import { parse, stringify } from "query-string";
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN';
@@ -54,8 +54,9 @@ export default class CRouter extends Component {
       <RotorHashRouter>
         <ConfigProvider locale={zhCN}>
           <Switch>
-            {/* <Route path="/login" component={Login}></Route>
+            {/* 
             <Route path="/register" component={Register}></Route> */}
+            <Route path="/login" component={Login} />
             <Route path="/" component={App} />
           </Switch>
         </ConfigProvider>

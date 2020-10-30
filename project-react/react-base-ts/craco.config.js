@@ -23,6 +23,12 @@ module.exports = {
       new AntdDayjsWebpackPlugin()
     ]
   },
+  babel: {
+    plugins: [
+      ['import', { libraryName: 'antd', "libraryDirectory": "es", style: true }],
+      ['@babel/plugin-proposal-decorators', { legacy: true }]
+    ]
+  },
   devServer: addProxy({
     '/api': {
       target: PROXY,

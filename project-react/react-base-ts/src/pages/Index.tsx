@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import {Tips} from "../components/Base";
 import { api } from "../global/api";
 import BreadcrumbCustom from "../components/BreadcrumbCustom";
-
+import {message} from "antd"
 /* const Index =(props: any)=>{
   console.log(props)
   return (
@@ -27,6 +27,7 @@ const Index: React.FC<Props> =(props)=> {
   useEffect(()=> {
     fetchApi();
   })
+  message.success('ce')
   return <div {...otherProps}>
     <BreadcrumbCustom data={[]} />
     {children}
@@ -34,6 +35,7 @@ const Index: React.FC<Props> =(props)=> {
 }
 export default Index;
 /* import React from 'react'
+import { message } from 'antd';
 
 interface Props {
     endDate: string,
