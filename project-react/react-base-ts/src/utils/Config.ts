@@ -1,0 +1,1 @@
+export const DATE_FORMART = "YYYY-MM-DD HH:mm:ss";
