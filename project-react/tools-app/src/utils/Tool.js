@@ -1,9 +1,11 @@
 import * as PDFJS from "pdfjs-dist";
 import JSZip from "jszip";
 import saveAs from 'file-saver';
+/* import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.entry'; */
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.entry';
 import { message } from "antd";
 PDFJS.GlobalWorkerOptions.workerSrc = pdfjsWorker;
+// PDFJS.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
 const Tool = {};
 
 Tool.toggleKey=(e)=> {
@@ -13,39 +15,43 @@ Tool.toggleKey=(e)=> {
 }
 
 Tool.readPdf =(file, self)=> {
-  self.setState({ploading: true})
-  let el = document.getElementById("pdf-container");
-  delDomChild(el);
-  const reader = new FileReader();
-  reader.readAsArrayBuffer(file);
-  reader.onload = function (e) {
-    const typedarray = new Uint8Array(this.result);
-    const loadingTask = PDFJS.getDocument(typedarray);
-    loadingTask.promise.then(async function (pdf) {
-      if (pdf) {
-        // pdf 总页数
-        const pageNum = pdf.numPages;
-        for (let i = 1; i <= pageNum; i++) {
-          // 生成每页 pdf 的 canvas
-          const canvas = document.createElement('canvas');
-          canvas.id = "pageNum" + i;
-          // 将 canvas 添加到 dom 中
-          el.append(canvas);
-          const context = canvas.getContext('2d');
-          await openPage(pdf, i, context);
+  if(window.FileReader){
+    self.setState({ploading: true})
+    let el = document.getElementById("pdf-container");
+    delDomChild(el);
+    const reader = new FileReader();
+    reader.readAsArrayBuffer(file);
+    reader.onload = function (e) {
+      const typedarray = new Uint8Array(e.result);
+      console.log('开始预览')
+      const loadingTask = PDFJS.getDocument(typedarray);
+      loadingTask.promise.then(async function (pdf) {
+        if (pdf) {
+          // pdf 总页数
+          const pageNum = pdf.numPages;
+          console.log('pdf总页数：' + pageNum)
+          for (let i = 1; i <= pageNum; i++) {
+            // 生成每页 pdf 的 canvas
+            const canvas = document.createElement('canvas');
+            canvas.id = "pageNum" + i;
+            // 将 canvas 添加到 dom 中
+            el.append(canvas);
+            const context = canvas.getContext('2d');
+            await openPage(pdf, i, context);
+          }
+          self.setState({
+            fileBase: {
+              pageNum
+            },
+            ploading: false
+          })
         }
-        self.setState({
-          fileBase: {
-            pageNum
-          },
-          ploading: false
-        })
-      }
-    }).catch(function (reason) {
-      self.setState({ploading: false})
-      console.error("Error: " + reason);
-      message.error("Error: " + reason)
-    });
+      }).catch(function (reason) {
+        self.setState({ploading: false})
+        console.error("Error: " + reason);
+        message.error("Error: " + reason)
+      });
+    }
   }
 }
 
