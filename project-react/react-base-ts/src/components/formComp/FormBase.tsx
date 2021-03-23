@@ -51,7 +51,7 @@ const InputItem: React.FC<Props> =(props)=>{
     }else if(typeitem === "date-month-picker"){
       return <DatePicker.MonthPicker placeholder={placeholder} {...otherProps} />
     }else if(typeitem === "cascader"){
-      return <Cascader placeholder={placeholder} {...otherProps} />
+      return null// <Cascader placeholder={placeholder} {...otherProps} />
     }else if(typeitem === "radio-group"){
       return <RadioGroup {...otherProps} > {props.children}</RadioGroup>
     }

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import { api } from "../../global/api";
-import { FormBase } from "../../components/formComp";
-import { PhoneRules } from "../../utils/Rules"
+import { api } from "@/global/api";
+import { FormBase } from "@/components/formComp";
+import { PhoneRules } from "@/utils/Rules";
 import { Form, Button, Spin, message } from "antd";
 
 async function loginApi(values: object, setLoading: Function){
@@ -9,7 +9,7 @@ async function loginApi(values: object, setLoading: Function){
   setLoading(true);
   const {data} = await api('/api/auth/login_by_password', values, '');
   if(data){
-
+    console.log('登录成功')
   }
   setLoading(false);
 }
@@ -41,7 +41,7 @@ const Index: React.FC =(props)=> {
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
         >
-          <h2>科学家在线</h2>
+          <h2>科学家在线1</h2>
           <FormBase.Input label="手机号" name="phone" rules={PhoneRules} required />
           <FormBase.InputPassword label="密码" name="password" required />
           <Form.Item {...tailLayout}>

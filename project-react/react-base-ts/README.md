@@ -23,6 +23,9 @@
 ## 配置端口号代理
 
 
+## 升级create-react-script
+
+> yarn upgrade --latest react-scripts
 
 ## 目录
 ├── mock // 数据存放
