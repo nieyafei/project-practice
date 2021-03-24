@@ -82,5 +82,5 @@ export default function create(options: CustomIconOptions = {}): React.SFC<IconF
 
   Iconfont.displayName = 'Iconfont';
 
-  return Iconfont as any;
+  return Iconfont;
 }
