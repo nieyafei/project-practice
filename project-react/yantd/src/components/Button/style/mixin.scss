@@ -1,0 +1,18 @@
+/* .btn-text() {
+  .button-variant-other(@text-color, transparent, transparent);
+  box-shadow: none;
+  &:hover,
+  &:focus {
+    color: @text-color;
+    background: @btn-text-hover-bg;
+    border-color: transparent;
+  }
+
+  &:active {
+    color: @text-color;
+    background: fadein(@btn-text-hover-bg, 1%);
+    border-color: transparent;
+  }
+
+  .button-disabled(@disabled-color; transparent; transparent);
+} */

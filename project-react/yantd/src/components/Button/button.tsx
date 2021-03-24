@@ -1,63 +1,64 @@
-import React, { ButtonHTMLAttributes, AnchorHTMLAttributes, FC, ReactNode} from "react";
+import React, { ButtonHTMLAttributes, AnchorHTMLAttributes, FC, ReactNode, useContext} from "react";
 import classNames from "classnames";
-import {Omit} from "../_util/type";
+import {Omit, tuple} from "../_util/type";
+import { ConfigContext } from '../config-provider';
+import { defaultGetPrefixCls } from "../config-provider/context";
 
 export enum ButtonSize {
   Large = "lg",
   Small = "sm",
 }
 
-export enum ButtonType {
-  Primary = "primary",
-  Default = "default",
-  Dashed = "dashed",
-  Danger = "danger",
-  Link = "link",
-}
+const ButtonTypes = tuple('default', 'primary', 'danger', 'dashed', 'link', 'text');
+export type ButtonType = typeof ButtonTypes[number];
+
+const ButtonShapes = tuple('circle', 'round');
+export type ButtonShape = typeof ButtonShapes[number];
+
+const ButtonHTMLTypes = tuple('submit', 'button', 'reset');
+export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
 
 export interface BaseButtonProps {
   className?: string;
   disabled?: boolean;
   size?: "lg" | "sm";
-  type?: "primary" | "default" | "dashed" | "danger" | "link";
+  type?: ButtonType;
   children: ReactNode;
-  href?: string;
-  htmlType?: "button" | "submit" | "reset";
-  shape?: 'circle' | 'round';
+  shape?: ButtonShape;
   onClick?: React.MouseEventHandler<HTMLElement>;
+  prefixCls?: string;
 }
 
 export type AnchorButtonProps = {
   href: string;
   target?: string;
-  onClick?: React.MouseEventHandler<HTMLElement>;
 } & BaseButtonProps & Omit<AnchorHTMLAttributes<HTMLElement>, 'type' | 'onClick'>
 
 export type NativeButtonProps = {
-  htmlType?: "button" | "submit" | "reset";
-  onClick?: React.MouseEventHandler<HTMLElement>;
-} & BaseButtonProps & Omit<ButtonHTMLAttributes<any>, 'type' | 'onClick'>;
+  htmlType?: ButtonHTMLType;
+} & BaseButtonProps & Omit<ButtonHTMLAttributes<HTMLElement>, 'type' | 'onClick'>;
 
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;  // 改为可选
 
 export const Button: FC<ButtonProps> = (props) => {
-  const { type, className, disabled, size, href, children , htmlType, shape, ...restProps} = props;
-  const classes = classNames("btn", className , {
-    [`btn-${type}`]: type,
-    [`btn-${size}`]: size,
-    [`btn-${shape}`]: shape,
-    disabled: type === ButtonType.Link && disabled,
+  const { type, className, disabled, size, href, children , htmlType, shape, prefixCls: customizePrefixCls,...restProps} = props;
+  // const { getPrefixCls } = useContext(ConfigContext);
+  const prefixCls = defaultGetPrefixCls('btn', customizePrefixCls);
+  const classes = classNames(prefixCls, className , {
+    [`${prefixCls}-${type}`]: type,
+    [`${prefixCls}-${size}`]: size,
+    [`${prefixCls}-${shape}`]: shape,
+    disabled
   });
 
-  if (type === ButtonType.Link && href) {
+  if (type === "link" && href) {
     return (
       <a href={href} className={classes} {...restProps}>
         {children}
       </a>
     );
-  } else {
-    return <button type={htmlType} className={classes} disabled={disabled}  {...restProps}>{children}</button>;
   }
+  return <button type={htmlType} className={classes} disabled={disabled}  {...restProps}>{children}</button>;
 };
 
 Button.defaultProps = {
