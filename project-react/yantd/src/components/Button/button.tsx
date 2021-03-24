@@ -1,5 +1,6 @@
 import React, { ButtonHTMLAttributes, AnchorHTMLAttributes, FC, ReactNode} from "react";
 import classNames from "classnames";
+import {Omit} from "../_util/type";
 
 export enum ButtonSize {
   Large = "lg",
@@ -14,42 +15,56 @@ export enum ButtonType {
   Link = "link",
 }
 
-interface BaseButtonProps {
+export interface BaseButtonProps {
   className?: string;
   disabled?: boolean;
   size?: "lg" | "sm";
-  btnType?: "primary" | "default" | "dashed" | "danger" | "link";
+  type?: "primary" | "default" | "dashed" | "danger" | "link";
   children: ReactNode;
   href?: string;
+  htmlType?: "button" | "submit" | "reset";
+  shape?: 'circle' | 'round';
+  onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
-type NaticeButonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
-type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
-export type ButtonProps = Partial<NaticeButonProps & AnchorButtonProps>;  // 改为可选
+export type AnchorButtonProps = {
+  href: string;
+  target?: string;
+  onClick?: React.MouseEventHandler<HTMLElement>;
+} & BaseButtonProps & Omit<AnchorHTMLAttributes<HTMLElement>, 'type' | 'onClick'>
+
+export type NativeButtonProps = {
+  htmlType?: "button" | "submit" | "reset";
+  onClick?: React.MouseEventHandler<HTMLElement>;
+} & BaseButtonProps & Omit<ButtonHTMLAttributes<any>, 'type' | 'onClick'>;
+
+export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;  // 改为可选
 
 export const Button: FC<ButtonProps> = (props) => {
-  const { btnType, className, disabled, size, href, children , ...restProps} = props;
-  // btn , btn-lg , btn-primary
+  const { type, className, disabled, size, href, children , htmlType, shape, ...restProps} = props;
   const classes = classNames("btn", className , {
-    [`btn-${btnType}`]: btnType, // btnType存在就添加上这个[`btn-${btnType}`] class
+    [`btn-${type}`]: type,
     [`btn-${size}`]: size,
-    disabled: btnType === ButtonType.Link && disabled,
+    [`btn-${shape}`]: shape,
+    disabled: type === ButtonType.Link && disabled,
   });
 
-  if (btnType === ButtonType.Link && href) {
+  if (type === ButtonType.Link && href) {
     return (
       <a href={href} className={classes} {...restProps}>
         {children}
       </a>
     );
   } else {
-    return <button className={classes} disabled={disabled}  {...restProps}>{children}</button>;
+    return <button type={htmlType} className={classes} disabled={disabled}  {...restProps}>{children}</button>;
   }
 };
 
 Button.defaultProps = {
   disabled: false,
-  btnType: "default"
+  type: "default",
+  shape: "circle",
+  htmlType: 'button'
 }
 
 export default Button;

@@ -7,7 +7,7 @@
 btnType | | String |  否 |  "primary" |"default" \| "dashed" \|"danger" \|"link" | "default" 
 size | String | "lg" \| "sm" | "sm" 
 disabled| Boolean |否  | true \| false | false 
-href | String | 否 | "" | ""  
+href | String | 否 | "" | ""
 
 ## 使用
 
