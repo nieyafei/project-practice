@@ -75,12 +75,13 @@ export const iconStyles = `
 `;
 
 export const useInsertStyles = (styleStr: string = iconStyles) => {
-  const { csp } = useContext(IconContext);
+  // const { csp } = useContext(IconContext);
 
   useEffect(() => {
     updateCSS(styleStr, '@ant-design-icons', {
-      prepend: true,
-      csp,
+      prepend: true
     });
+    return;
   }, []);
+
 };

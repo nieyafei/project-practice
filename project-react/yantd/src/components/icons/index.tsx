@@ -1,4 +1,9 @@
 
-export {default as createFromIconfontCN} from "./IconFont";
+import createFromIconfontCN from "./IconFont";
+import Icon from './Icon';
 
-export { default } from './Icon';
+const Icons = {
+  Icon, createFromIconfontCN
+}
+
+export default Icons;

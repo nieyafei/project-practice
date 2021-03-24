@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, AnchorHTMLAttributes, FC, ReactNode, useContext} from "react";
+import React, { ButtonHTMLAttributes, AnchorHTMLAttributes, FC, ReactNode, useContext, useState} from "react";
 import classNames from "classnames";
 import {Omit, tuple} from "../_util/type";
 import { ConfigContext } from '../config-provider';
@@ -41,8 +41,9 @@ export type NativeButtonProps = {
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;  // 改为可选
 
 export const Button: FC<ButtonProps> = (props) => {
+  const [loading, setLoading] = useState(false);
+  const { getPrefixCls } = useContext(ConfigContext);
   const { type, className, disabled, size, href, children , htmlType, shape, prefixCls: customizePrefixCls,...restProps} = props;
-  // const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = defaultGetPrefixCls('btn', customizePrefixCls);
   const classes = classNames(prefixCls, className , {
     [`${prefixCls}-${type}`]: type,

@@ -39,7 +39,7 @@ function createScriptUrlElements(scriptUrls: string[], index: number = 0): void 
   }
 }
 
-export default function create(options: CustomIconOptions = {}): React.SFC<IconFontProps> {
+export default function create(options: CustomIconOptions = {}): React.ForwardRefExoticComponent<any> {
   const { scriptUrl, extraCommonProps = {} } = options;
 
   /**

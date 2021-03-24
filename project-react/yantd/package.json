@@ -1,6 +1,6 @@
 {
   "name": "yantd",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -26,8 +26,8 @@
     "web-vitals": "^1.0.1"
   },
   "peerDependencies": {
-    "react": ">=17.0.2",
-    "react-dom": ">=17.0.2"
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,7 +45,14 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "plugins": [
+      "react-hooks"
+    ],
+    "rules": {
+      "react-hooks/rules-of-hooks": "error", 
+      "react-hooks/exhaustive-deps": "warn"
+    }
   },
   "browserslist": {
     "production": [
@@ -69,6 +76,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "cross-env": "^7.0.3",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

@@ -47,7 +47,7 @@ const Icon = React.forwardRef<HTMLSpanElement, IconComponentProps>((props, ref) 
     'Should have `component` prop or `children`.',
   );
 
-  useInsertStyles();
+  // useInsertStyles();
 
   const classString = classNames(
     'anticon',
