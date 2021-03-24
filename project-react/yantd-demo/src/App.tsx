@@ -1,7 +1,12 @@
 import React from 'react';
-import { Button, ConfigProvider } from "yantd";
+import { Button, ConfigProvider, Icons } from "yantd";
 import logo from './logo.svg';
 import './App.css';
+
+
+const MyIcon = Icons.createFromIconfontCN({
+  scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js'
+});
 
 function App() {
   return (
@@ -20,6 +25,7 @@ function App() {
           Learn React
         </a>
         <Button type="link">我是按钮</Button>
+        <MyIcon type="icon-example" />
       </header>
     </div>
   );
