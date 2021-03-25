@@ -30,7 +30,7 @@
     "react-dom": ">=16.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "craco start",
     "clean": "rimraf ./dist",
     "lint": "eslint --ext js,ts src --max-warnings 5",
     "build": "npm run clean && npm run build-ts && npm run build-css",
@@ -50,7 +50,7 @@
       "react-hooks"
     ],
     "rules": {
-      "react-hooks/rules-of-hooks": "error", 
+      "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn"
     }
   },
@@ -67,6 +67,7 @@
     ]
   },
   "devDependencies": {
+    "@craco/craco": "^6.1.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
