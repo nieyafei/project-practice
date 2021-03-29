@@ -6,6 +6,7 @@ export interface ConfigConsumerProps {
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   rootPrefixCls?: string;
   iconPrefixCls?: string;
+  direction?: DirectionType;
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => string;
   children?: React.ReactNode;
 }
@@ -21,3 +22,5 @@ export const ConfigContext = React.createContext<ConfigConsumerProps>({
 });
 
 export const ConfigConsumer = ConfigContext.Consumer;
+
+export type DirectionType = 'ltr' | 'rtl' | undefined;

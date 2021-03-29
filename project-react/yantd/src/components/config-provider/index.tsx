@@ -1,9 +1,22 @@
 import React from "react";
-import { ConfigContext, ConfigConsumer } from "./context";
+import { ConfigContext, ConfigConsumer, ConfigConsumerProps } from "./context";
 
 export {
-  ConfigContext
+  ConfigContext, ConfigConsumer
 };
+export type { ConfigConsumerProps };
+
+export const configConsumerProps = [
+  'getTargetContainer',
+  'getPopupContainer',
+  'rootPrefixCls',
+  'getPrefixCls',
+  'renderEmpty',
+  'csp',
+  'autoInsertSpaceInButton',
+  'locale',
+  'pageHeader',
+];
 
 export const defaultPrefixCls = 'yant';
 

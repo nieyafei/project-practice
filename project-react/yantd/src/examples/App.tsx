@@ -1,5 +1,5 @@
 import React from 'react';
-import {Icons} from "../index";
+import {Icons, Spin} from "../index";
 import logo from '../logo.svg';
 import "../styles/index.scss";
 
@@ -14,6 +14,7 @@ function App() {
         Iconfont
       </header>
       <MyIcon type="iconsearch" />
+      <Spin spinning={true}><div style={{width: '200px', height: '200px'}}>我是测试</div></Spin>
     </div>
   );
 }

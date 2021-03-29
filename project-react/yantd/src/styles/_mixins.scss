@@ -1,3 +1,4 @@
+@import "./variables";
 // 全局mixins
 
 @mixin button-size($padding-x,$padding-y,$font-size,$border-radius){
@@ -63,4 +64,25 @@
 
 @mixin dot-radio-color($color) {
   background-color: $color;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin square($size) {
+  @include size($size, $size);
+}
+
+@mixin reset-component() {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: $text-color;
+  font-size: $font-size-base;
+  font-variant: $font-variant-base;
+  line-height: $line-height-base;
+  list-style: none;
+  font-feature-settings: $font-feature-settings-base;
 }
