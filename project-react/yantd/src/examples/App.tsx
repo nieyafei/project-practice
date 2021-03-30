@@ -14,7 +14,7 @@ function App() {
         Iconfont
       </header>
       <MyIcon type="iconsearch" />
-      <Spin spinning={true}><div style={{width: '200px', height: '200px'}}>我是测试</div></Spin>
+      <Spin spinning={true} tip="正在加载"><div style={{width: '200px', height: '200px'}}>我是测试</div></Spin>
     </div>
   );
 }
