@@ -29,6 +29,7 @@
     "react": ">=16.0.0",
     "react-dom": ">=16.0.0"
   },
+  "typings": "typings/index.d.ts",
   "scripts": {
     "start": "craco start",
     "clean": "rimraf ./dist",
