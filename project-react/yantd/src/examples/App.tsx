@@ -1,5 +1,5 @@
 import React from 'react';
-import {Icons, Spin} from "../index";
+import {Icons, Spin, Anchor} from "../index";
 import logo from '../logo.svg';
 import "../styles/index.scss";
 
@@ -15,6 +15,10 @@ function App() {
       </header>
       <MyIcon type="iconsearch" />
       <Spin spinning={true} tip="正在加载"><div style={{width: '200px', height: '200px'}}>我是测试</div></Spin>
+      <Anchor>
+        <Anchor.Link href="#components-anchor-demo-basic" title="Basic demo" />
+        <Anchor.Link href="#components-anchor-demo-static" title="Static demo" />
+      </Anchor>
     </div>
   );
 }
