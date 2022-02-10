@@ -15,7 +15,7 @@
     "file-saver": "^2.0.2",
     "jszip": "^3.5.0",
     "less-loader": "^6.2.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "pdfjs-dist": "^2.5.207",
     "query-string": "^6.13.1",
     "react": "^16.13.1",
